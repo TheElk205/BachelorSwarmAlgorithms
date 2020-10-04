@@ -3,45 +3,63 @@ import {TestAgent} from "./TestAgent.js";
 const cvs = document.getElementById('canvas')
 const ctx = cvs.getContext('2d')
 
-let agent =  TestAgent(ctx, cvs);
-let debugEnabled = true;
+const gameSettings = {
+  numberOfAgents: 10,
+  fps: 30,
+  debugEnabled: true
+}
 
-// Get controls
+// Game Controls
 const speedSlider = document.getElementById('speedSelector')
 speedSlider.oninput = (input) => {
   console.log(input.target.value)
-  agent.setSpeed(input.target.value)
+  for (let agent in agents) {
+    agent.setSpeed(input.target.value)
+  }
 }
 const isDebugEnabledToggle = document.getElementById('isDebugEnabled')
-isDebugEnabledToggle.checked = debugEnabled
+isDebugEnabledToggle.checked = gameSettings.debugEnabled
 isDebugEnabledToggle.onchange = () => {
-  debugEnabled = !debugEnabled
+  gameSettings.debugEnabled = !gameSettings.debugEnabled
 }
-let fps = 30;
 
-// ctx.fillStyle = 'red'
-// ctx.fillRect(100, 200, 30, 30)
 
+// Init everything here
+const agents = [];
+
+for (let i=0; i < gameSettings.numberOfAgents; i++)
+{
+  const agent = TestAgent(
+      ctx,
+      cvs,
+      {
+        position: [Math.random() * cvs.width, Math.random() * cvs.height]
+      }
+  )
+  agent.setSpeed(speedSlider.value)
+  agents.push(agent)
+}
+
+// Game Logic
 const startedAt = performance.now()
 let lastFrame = startedAt
 
 const drawEverything = () =>
 {
   ctx.clearRect(0, 0, cvs.width, cvs.height);
-  agent.update(performance.now() - lastFrame)
-  if (debugEnabled)
+  agents.forEach(agent =>
   {
-    agent.drawDebug()
-  }
-  agent.draw()
+    agent.update(performance.now() - lastFrame)
+    if (gameSettings.debugEnabled) {
+      agent.drawDebug()
+    }
+    agent.draw()
+  })
 
   // Testing
-  ctx.rect(300, 320, 1, 1);
-  ctx.stroke()
+  // ctx.rect(300, 320, 1, 1);
+  // ctx.stroke()
   lastFrame = performance.now()
 }
 
-// Init everything here
-agent.setSpeed(speedSlider.value)
-
-let game = setInterval(drawEverything, 1000 / fps)
+let game = setInterval(drawEverything, 1000 / gameSettings.fps)

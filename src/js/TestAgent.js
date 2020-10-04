@@ -1,6 +1,6 @@
 import {MathUtils} from "./MathHelpers";
 
-export const TestAgent = (gameContext, gameCanvas) => {
+export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
   console.log("Creating Test Agent")
 
   const maxSpeed = 0.1
@@ -17,7 +17,8 @@ export const TestAgent = (gameContext, gameCanvas) => {
       radius: 50,
       startAngle: -135,
       endAngle: 135
-    }
+    },
+    ...startState
   }
 
   let agent = new Image()
