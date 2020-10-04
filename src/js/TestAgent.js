@@ -5,7 +5,7 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
 
   const maxSpeed = 0.1
 
-  const angleOffset = -90
+  const angleOffset = 0
 
   const state = {
     isLoaded: false,
@@ -18,9 +18,11 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
       startAngle: -135,
       endAngle: 135
     },
+    agentsWithinPerception: [],
+    id: MathUtils.uuidv4(),
     ...startState
   }
-
+  console.log("Created agent with id: ", state.id)
   let agent = new Image()
   agent.onload = () => {
     console.log('Agent loaded')
@@ -45,7 +47,8 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
         0,
         0
     ]
-
+    // console.log("Plain Angle: ", perception.startAngle)
+    // console.log("Plain Angle with ofset: ", angleOffset + perception.startAngle)
     gameContext.beginPath();
     gameContext.arc(
         position[0],
@@ -110,9 +113,22 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
   const isPointInPerception = (perception, x, y) =>
   {
     calculatePerception(perception)
+    // Maype i need to translate this point?? Not quite sure
     if (gameContext.isPointInPath(x, y))
     {
-      console.log("Yes it is")
+      console.log(`Point (${x} / ${y}) is is within perception`)
+    }
+  }
+
+  const addAgentIfWithinPerception = (perception, otherAgent) =>
+  {
+    calculatePerception(perception)
+    if (gameContext.isPointInPath(
+        otherAgent.getState().position[0],
+        otherAgent.getState().position[1],
+    ))
+    {
+      state.agentsWithinPerception.push(agent)
     }
   }
 
@@ -122,7 +138,19 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
     {
       state.currentSpeed = newSpeed / 100
     },
+    setPerception: (newPerception) =>
+    {
+      state.perception = {
+        ...state.perception,
+        ...newPerception
+      }
+    },
+    addAgentIfWithinPerception: (agent) => {
+      addAgentIfWithinPerception(state.perception, agent)
+    },
     update: (deltaTime) => {
+      // Maybe move this to "pre update" as it is not quite right here
+      state.agentsWithinPerception = []
       const speed = maxSpeed * state.currentSpeed
       move(deltaTime * speed, deltaTime * speed)
     },
@@ -147,9 +175,13 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
             -state.size[0] / 2,
             -state.size[1] / 2,
             state.size[0],
-            state.size[1],
+            state.size[1]
         )
       })
+    },
+    getState: () =>
+    {
+      return state
     }
   }
 }

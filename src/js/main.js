@@ -4,7 +4,7 @@ const cvs = document.getElementById('canvas')
 const ctx = cvs.getContext('2d')
 
 const gameSettings = {
-  numberOfAgents: 10,
+  numberOfAgents: 2,
   fps: 30,
   debugEnabled: true
 }
@@ -13,16 +13,37 @@ const gameSettings = {
 const speedSlider = document.getElementById('speedSelector')
 speedSlider.oninput = (input) => {
   console.log(input.target.value)
-  for (let agent in agents) {
+  agents.forEach(agent => {
     agent.setSpeed(input.target.value)
-  }
+  })
 }
+
 const isDebugEnabledToggle = document.getElementById('isDebugEnabled')
 isDebugEnabledToggle.checked = gameSettings.debugEnabled
 isDebugEnabledToggle.onchange = () => {
   gameSettings.debugEnabled = !gameSettings.debugEnabled
 }
 
+const perceptionAngleSlider = document.getElementById('perceptionAngleSelector')
+perceptionAngleSlider.oninput = (input) => {
+  console.log(input.target.value)
+  agents.forEach(agent => {
+    agent.setPerception({
+      startAngle: -input.target.value,
+      endAngle: input.target.value
+    })
+  })
+}
+
+const perceptionRadiusSlider = document.getElementById('perceptionRadiusSelector')
+perceptionRadiusSlider.oninput = (input) => {
+  console.log(input.target.value)
+  agents.forEach(agent => {
+    agent.setPerception({
+      radius: input.target.value
+    })
+  })
+}
 
 // Init everything here
 const agents = [];
@@ -37,6 +58,13 @@ for (let i=0; i < gameSettings.numberOfAgents; i++)
       }
   )
   agent.setSpeed(speedSlider.value)
+  agents.forEach(agent => {
+    agent.setPerception({
+      radius: perceptionRadiusSlider.value,
+      startAngle: -perceptionAngleSlider.value,
+      endAngle: perceptionAngleSlider.value,
+    })
+  })
   agents.push(agent)
 }
 
@@ -50,6 +78,9 @@ const drawEverything = () =>
   agents.forEach(agent =>
   {
     agent.update(performance.now() - lastFrame)
+    agents.forEach(perceptionAgents => {
+      agent.addAgentIfWithinPerception(perceptionAgents)
+    })
     if (gameSettings.debugEnabled) {
       agent.drawDebug()
     }
@@ -62,4 +93,5 @@ const drawEverything = () =>
   lastFrame = performance.now()
 }
 
+// maybe split this up in visual update and "physics' Udpate.
 let game = setInterval(drawEverything, 1000 / gameSettings.fps)
