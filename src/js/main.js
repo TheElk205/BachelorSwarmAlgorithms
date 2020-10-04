@@ -5,7 +5,7 @@ const ctx = cvs.getContext('2d')
 
 const gameSettings = {
   numberOfAgents: 10,
-  fps: 30,
+  fps: 60,
   debugEnabled: true
 }
 
@@ -84,11 +84,11 @@ const drawEverything = () =>
   })
 
   agents.forEach(agent => {
-    agent.update(performance.now() - lastFrame)
-    agent.draw()
     if (gameSettings.debugEnabled) {
       agent.drawDebug()
     }
+    agent.update(performance.now() - lastFrame)
+    agent.draw()
   })
 
   // Testing

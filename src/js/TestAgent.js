@@ -137,13 +137,17 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
       return // Its me!
     }
     calculatePerception(perception)
-    if (gameContext.isPointInPath(
-        otherAgent.getState().position[0],
-        otherAgent.getState().position[1],
-    ))
+    const between = [
+        state.position[0] - otherAgent.getState().position[0],
+        state.position[1] - otherAgent.getState().position[1]
+        ]
+
+    const length = MathUtils.calculateMagnitude(between)
+
+    if (length < state.perception.radius)
     {
       state.agentsWithinPerception.push(otherAgent)
-      console.log("found friend no: ", state.agentsWithinPerception.length)
+      // console.log("found friend no: ", state.agentsWithinPerception.length)
     }
   }
 
@@ -169,7 +173,7 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
 
       if (state.agentsWithinPerception.length > 0)
       {
-        console.log(`agent ${state.id} has ${state.agentsWithinPerception.length} agents within perception`)
+        // console.log(`agent ${state.id} has ${state.agentsWithinPerception.length} agents within perception`)
         // Separation
         const separation = [0, 0];
         state.agentsWithinPerception.forEach(agent => {
@@ -233,6 +237,11 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
       localTransformation(() => {
         drawPerception(state.perception)
         // isPointInPerception(state.perception, 300, 320)
+        gameContext.font = "16px Arial";
+        gameContext.fillText(
+            "" + state.agentsWithinPerception.length,
+            -state.size[0] / 2,
+            -state.size[1] / 2);
       })
     },
     draw: () => {

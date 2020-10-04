@@ -31,7 +31,11 @@ export class MathUtils {
     }
 
     static normalizeVelocity(velocity) {
-        const magnitude = Math.sqrt(velocity[0] * velocity[0] + velocity[1] * velocity[1])
+        const magnitude = MathUtils.calculateMagnitude(velocity)
         return [velocity[0] / magnitude, velocity[1] / magnitude]
+    }
+
+    static calculateMagnitude(vector) {
+        return Math.sqrt(vector[0] * vector[0] + vector[1] * vector[1])
     }
 }
