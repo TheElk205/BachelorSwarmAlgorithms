@@ -4,7 +4,7 @@ const cvs = document.getElementById('canvas')
 const ctx = cvs.getContext('2d')
 
 const gameSettings = {
-  numberOfAgents: 10,
+  numberOfAgents: 15,
   fps: 60,
   debugEnabled: true
 }

@@ -31,6 +31,7 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
   console.log("Created agent with id: ", state.id)
 
   state.rotation = MathUtils.angleFromVelocity(state.velocity)
+  state.velocity = MathUtils.normalizeVelocity(state.velocity)
 
   let agent = new Image()
   agent.onload = () => {
@@ -212,13 +213,13 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
 
         // console.log('new Velocity: ', newVelocity)
 
-        newVelocity = MathUtils.normalizeVelocity(newVelocity)
       }
 
+      newVelocity = MathUtils.normalizeVelocity(newVelocity)
       const speed = maxSpeed * state.currentSpeed
 
       state.velocity = newVelocity
-      state.rotation = MathUtils.angleFromVelocity(state.velocity)
+      state.rotation = MathUtils.angleFromVelocity(newVelocity)
 
       const moveVelocity = [
         newVelocity[0] * deltaTime * speed,
@@ -240,8 +241,12 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
         gameContext.font = "16px Arial";
         gameContext.fillText(
             "" + state.agentsWithinPerception.length,
-            -state.size[0] / 2,
-            -state.size[1] / 2);
+            0,
+            -10);
+        // gameContext.fillText(
+        //     "" + state.rotation,
+        //     -10,
+        //     -10);
       })
     },
     draw: () => {
