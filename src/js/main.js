@@ -4,7 +4,7 @@ const cvs = document.getElementById('canvas')
 const ctx = cvs.getContext('2d')
 
 const gameSettings = {
-  numberOfAgents: 2,
+  numberOfAgents: 10,
   fps: 30,
   debugEnabled: true
 }
@@ -54,7 +54,8 @@ for (let i=0; i < gameSettings.numberOfAgents; i++)
       ctx,
       cvs,
       {
-        position: [Math.random() * cvs.width, Math.random() * cvs.height]
+        position: [Math.random() * cvs.width, Math.random() * cvs.height],
+        velocity: [Math.random(), Math.random()]
       }
   )
   agent.setSpeed(speedSlider.value)
@@ -77,14 +78,17 @@ const drawEverything = () =>
   ctx.clearRect(0, 0, cvs.width, cvs.height);
   agents.forEach(agent =>
   {
-    agent.update(performance.now() - lastFrame)
     agents.forEach(perceptionAgents => {
       agent.addAgentIfWithinPerception(perceptionAgents)
     })
+  })
+
+  agents.forEach(agent => {
+    agent.update(performance.now() - lastFrame)
+    agent.draw()
     if (gameSettings.debugEnabled) {
       agent.drawDebug()
     }
-    agent.draw()
   })
 
   // Testing

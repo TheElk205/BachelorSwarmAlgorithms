@@ -13,16 +13,25 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
     position: [1, 1],
     currentSpeed: 0.5,
     rotation: 45, //degree
+    velocity: [1, 1],
     perception: {
       radius: 50,
       startAngle: -135,
       endAngle: 135
+    },
+    parameters: {
+      separation: 1,
+      cohesion: 1,
+      alignment: 1
     },
     agentsWithinPerception: [],
     id: MathUtils.uuidv4(),
     ...startState
   }
   console.log("Created agent with id: ", state.id)
+
+  state.rotation = MathUtils.angleFromVelocity(state.velocity)
+
   let agent = new Image()
   agent.onload = () => {
     console.log('Agent loaded')
@@ -32,9 +41,10 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
   agent.src = './img/Agent/Agent.png'
 
   console.log("Angle in radiants: ", MathUtils.deg2rad(state.perception.startAngle))
-  const move = (xOffset, zOffset) => {
-    state.position[0] += xOffset
-    state.position[1] += zOffset
+  const move = (moveVelocity) => {
+
+    state.position[0] += state.velocity[0] * moveVelocity[0]
+    state.position[1] += state.velocity[1] * moveVelocity[1]
 
     // Reset when moving out of the canvas
     state.position[0] = state.position[0] % gameCanvas.width
@@ -132,7 +142,8 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
         otherAgent.getState().position[1],
     ))
     {
-      state.agentsWithinPerception.push(agent)
+      state.agentsWithinPerception.push(otherAgent)
+      console.log("found friend no: ", state.agentsWithinPerception.length)
     }
   }
 
@@ -153,10 +164,65 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
       addAgentIfWithinPerception(state.perception, agent)
     },
     update: (deltaTime) => {
-      // Maybe move this to "pre update" as it is not quite right here
-      state.agentsWithinPerception = []
+      // Calculate Boids stuff here
+      let newVelocity = state.velocity
+
+      if (state.agentsWithinPerception.length > 0)
+      {
+        console.log(`agent ${state.id} has ${state.agentsWithinPerception.length} agents within perception`)
+        // Separation
+        const separation = [0, 0];
+        state.agentsWithinPerception.forEach(agent => {
+          separation[0] += (state.position[0] - agent.getState().position[0] * state.parameters.separation)
+          separation[1] += (state.position[1] - agent.getState().position[1] * state.parameters.separation)
+        })
+
+        separation[0] = -separation[0]
+        separation[1] = -separation[1]
+
+        // Cohesion
+        const cohesion = [0, 0];
+        state.agentsWithinPerception.forEach(agent => {
+          cohesion[0] += agent.getState().position[0]
+          cohesion[1] += agent.getState().position[1]
+        })
+
+        cohesion[0] = cohesion[0] / state.agentsWithinPerception.length
+        cohesion[1] = cohesion[1] / state.agentsWithinPerception.length
+
+        cohesion[0] = (cohesion[0] - state.position[0]) * state.parameters.cohesion
+        cohesion[1] = (cohesion[1] - state.position[1]) * state.parameters.cohesion
+
+        // Alignment
+        const alignment = [0,0]
+        state.agentsWithinPerception.forEach(agent => {
+          alignment[0] += (state.velocity[0] - agent.getState().velocity[0] * state.parameters.alignment)
+          alignment[1] += (state.velocity[1] - agent.getState().velocity[1] * state.parameters.alignment)
+        })
+
+        alignment[0] = -alignment[0]
+        alignment[1] = -alignment[1]
+
+        newVelocity[0] = separation[0] + cohesion[0] + alignment[0]
+        newVelocity[1] = separation[1] + cohesion[1] + alignment[1]
+
+        // console.log('new Velocity: ', newVelocity)
+
+        newVelocity = MathUtils.normalizeVelocity(newVelocity)
+      }
+
       const speed = maxSpeed * state.currentSpeed
-      move(deltaTime * speed, deltaTime * speed)
+
+      state.velocity = newVelocity
+      state.rotation = MathUtils.angleFromVelocity(state.velocity)
+
+      const moveVelocity = [
+        newVelocity[0] * deltaTime * speed,
+        newVelocity[1] * deltaTime * speed,
+      ]
+
+      move(moveVelocity)
+      state.agentsWithinPerception = []
     },
     drawDebug: () => {
       if (!state.isLoaded)
@@ -166,7 +232,7 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
 
       localTransformation(() => {
         drawPerception(state.perception)
-        isPointInPerception(state.perception, 300, 320)
+        // isPointInPerception(state.perception, 300, 320)
       })
     },
     draw: () => {
