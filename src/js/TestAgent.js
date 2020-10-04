@@ -122,6 +122,10 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
 
   const addAgentIfWithinPerception = (perception, otherAgent) =>
   {
+    if (otherAgent.getState().id === state.id)
+    {
+      return // Its me!
+    }
     calculatePerception(perception)
     if (gameContext.isPointInPath(
         otherAgent.getState().position[0],
