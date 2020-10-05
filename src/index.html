@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Bachelor Swarm Algorithms</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>Bachelor Swarm Algorithms</div>
-    <canvas id="canvas" width="608" height="608" style="background-color: #cccccc">
-    </canvas>
-    <div class="slidecontainer">
-        <label for="speedSelector">Speed</label>
-        <input type="range" min="0" max="100" value="50" class="slider" id="speedSelector">
-    </div>
-    <div class="perceptioncontainer">
-        <label for="perceptionAngleSelector">Perception Angle</label>
-        <input type="range" min="0" max="180" value="50" class="slider" id="perceptionAngleSelector">
+    <main class="wrapper">
+        <div>Bachelor Swarm Algorithms</div>
+        <canvas id="canvas" width="608" height="608" style="background-color: #cccccc">
+        </canvas>
+        <div class="slidecontainer">
+            <label for="speedSelector">Speed</label>
+            <input type="range" min="0" max="100" value="50" class="slider" id="speedSelector">
+        </div>
+        <div class="perceptioncontainer">
+            <label for="perceptionAngleSelector">Perception Angle</label>
+            <input type="range" min="0" max="180" value="50" class="slider" id="perceptionAngleSelector">
 
-        <label for="perceptionRadiusSelector">Perception Radius</label>
-        <input type="range" min="0" max="180" value="50" class="slider" id="perceptionRadiusSelector">
-    </div>
-    <label for="isDebugEnabled">Is debug Enabled</label>
-    <input type="checkbox" id="isDebugEnabled">
-    <script src="js/main.js"></script>
+            <label for="perceptionRadiusSelector">Perception Radius</label>
+            <input type="range" min="0" max="180" value="50" class="slider" id="perceptionRadiusSelector">
+        </div>
+        <label for="isDebugEnabled">Is debug Enabled</label>
+        <input type="checkbox" id="isDebugEnabled">
+        <script src="js/main.js"></script>
+    </main>
 </body>
 </html>
