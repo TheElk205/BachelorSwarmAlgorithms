@@ -8,6 +8,11 @@
 .wrapper > * {
     grid-column: 2;
 }
+.wrapper > .navigation {
+    grid-column: 1;
+    text-align: right;
+    margin-right: 20px;
+}
 .full-bleed {
     width: 100%;
     grid-column: 1 / 4;

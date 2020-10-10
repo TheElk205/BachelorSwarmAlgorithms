@@ -10,9 +10,10 @@
   "license": "",
   "author": "Ferdinand Köppen",
   "type": "module",
+  "script": "index.html",
   "scripts": {
-    "build": "parcel build src/index.html",
-    "dev": "parcel src/index.html --open",
+    "build": "parcel build src/index.html src/testPages/graphicsTest.html",
+    "dev": "parcel src/index.html src/testPages/graphicsTest.html --open ",
     "start": "npm run build && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

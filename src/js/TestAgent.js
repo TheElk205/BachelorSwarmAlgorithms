@@ -28,6 +28,7 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
     id: MathUtils.uuidv4(),
     ...startState
   }
+
   console.log("Created agent with id: ", state.id)
 
   state.rotation = MathUtils.angleFromVelocity(state.velocity)
@@ -39,7 +40,7 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
     console.log(gameCanvas.width)
     state.isLoaded = true
   }
-  agent.src = './img/Agent/Agent.png'
+  agent.src = '../img/Agent/Agent.png'
 
   console.log("Angle in radiants: ", MathUtils.deg2rad(state.perception.startAngle))
   const move = (moveVelocity) => {
@@ -152,6 +153,18 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
     }
   }
 
+  // no need to use save and restore between calls as it sets the transform rather
+  // than multiply it like ctx.rotate ctx.translate ctx.scale and ctx.transform
+  // Also combining the scale and origin into the one call makes it quicker
+  // x,y position of image center
+  // scale scale of image
+  // rotation in radians.
+  const drawImage = (image, x, y, scale, rotation) => {
+    gameContext.setTransform(scale, 0, 0, scale, x, y); // sets scale and origin
+    gameContext.rotate(rotation);
+    gameContext.drawImage(image, -image.width / 2, -image.height / 2);
+  }
+
   return {
     // helper
     setSpeed: (newSpeed) =>
@@ -255,11 +268,11 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
         return
       }
       localTransformation(() => {
-        gameContext.drawImage(agent,
-            -state.size[0] / 2,
-            -state.size[1] / 2,
-            state.size[0],
-            state.size[1]
+        drawImage(agent,
+            state.position[0],
+            state.position[1],
+            0.5,
+            state.rotation
         )
       })
     },
