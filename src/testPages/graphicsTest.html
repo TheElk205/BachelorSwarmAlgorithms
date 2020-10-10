@@ -15,32 +15,28 @@
         <div>Bachelor Swarm Algorithms - Graphics Test</div>
         <canvas id="canvas" width="608" height="608" style="background-color: #cccccc">
         </canvas>
-        <div>
-            Simulation Settings
-            <div class="slidecontainer">
-                <label for="speedSelector">Speed</label>
-                <input type="range" min="0" max="100" value="50" class="slider" id="speedSelector">
+        <div class="settings">
+            <div>
+                Simulation Settings
+                <div class="slidecontainer">
+                    <label for="rotationSelector">Rotation</label>
+                    <input type="range" min="0" max="360" value="180" class="slider" id="rotationSelector">
+                </div>
             </div>
             <div>
-                <label for="isDebugEnabled">Is debug Enabled</label>
-                <input type="checkbox" id="isDebugEnabled">
+                Agent Settings
+                <div>Perception Settings</div>
+                <div>
+                    <label for="perceptionAngleSelector">Perception Angle</label>
+                    <input type="range" min="0" max="180" value="50" class="slider" id="perceptionAngleSelector">
+                </div>
+                <div>
+                    <label for="perceptionRadiusSelector">Perception Radius</label>
+                    <input type="range" min="0" max="180" value="50" class="slider" id="perceptionRadiusSelector">
+                </div>
             </div>
         </div>
-
-        <div>
-            Agent Settings
-            <div class="perceptioncontainer">
-                Perception Settings
-                <label for="perceptionAngleSelector">Perception Angle</label>
-                <input type="range" min="0" max="180" value="50" class="slider" id="perceptionAngleSelector">
-
-                <label for="perceptionRadiusSelector">Perception Radius</label>
-                <input type="range" min="0" max="180" value="50" class="slider" id="perceptionRadiusSelector">
-            </div>
-        </div>
-
-
-        <script src="../js/main.js"></script>
+        <script src="../js/graphicsTest.js"></script>
     </main>
 </body>
 </html>

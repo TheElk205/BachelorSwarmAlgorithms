@@ -1,13 +1,7 @@
-import {TestAgent} from "./TestAgent.js";
+import {Boid} from "../agents/Boid.js";
+import Simulation from "../Simulation";
 
-const cvs = document.getElementById('canvas')
-const ctx = cvs.getContext('2d')
-
-const gameSettings = {
-  numberOfAgents: 15,
-  fps: 60,
-  debugEnabled: true
-}
+const simulation = Simulation()
 
 // Game Controls
 const speedSlider = document.getElementById('speedSelector')
@@ -19,9 +13,9 @@ speedSlider.oninput = (input) => {
 }
 
 const isDebugEnabledToggle = document.getElementById('isDebugEnabled')
-isDebugEnabledToggle.checked = gameSettings.debugEnabled
+isDebugEnabledToggle.checked = simulation.gameSettings.debugEnabled
 isDebugEnabledToggle.onchange = () => {
-  gameSettings.debugEnabled = !gameSettings.debugEnabled
+  simulation.gameSettings.debugEnabled = !simulation.gameSettings.debugEnabled
 }
 
 const perceptionAngleSlider = document.getElementById('perceptionAngleSelector')
@@ -48,13 +42,13 @@ perceptionRadiusSlider.oninput = (input) => {
 // Init everything here
 const agents = [];
 
-for (let i=0; i < gameSettings.numberOfAgents; i++)
+for (let i=0; i < simulation.gameSettings.numberOfAgents; i++)
 {
-  const agent = TestAgent(
-      ctx,
-      cvs,
+  const agent = Boid(
+      simulation.gameContext,
+      simulation.canvas,
       {
-        position: [Math.random() * cvs.width, Math.random() * cvs.height],
+        position: [Math.random() * simulation.canvas.width, Math.random() * simulation.canvas.height],
         velocity: [Math.random(), Math.random()]
       }
   )
@@ -75,7 +69,7 @@ let lastFrame = startedAt
 
 const drawEverything = () =>
 {
-  ctx.clearRect(0, 0, cvs.width, cvs.height);
+  simulation.gameContext.clearRect(0, 0, simulation.canvas.width, simulation.canvas.height);
   agents.forEach(agent =>
   {
     agents.forEach(perceptionAgents => {
@@ -84,7 +78,7 @@ const drawEverything = () =>
   })
 
   agents.forEach(agent => {
-    if (gameSettings.debugEnabled) {
+    if (simulation.gameSettings.debugEnabled) {
       agent.drawDebug()
     }
     agent.update(performance.now() - lastFrame)
@@ -92,10 +86,10 @@ const drawEverything = () =>
   })
 
   // Testing
-  // ctx.rect(300, 320, 1, 1);
-  // ctx.stroke()
+  // simulation.gameContext.rect(300, 320, 1, 1);
+  // simulation.gameContext.stroke()
   lastFrame = performance.now()
 }
 
 // maybe split this up in visual update and "physics' Udpate.
-let game = setInterval(drawEverything, 1000 / gameSettings.fps)
+let game = setInterval(drawEverything, 1000 / simulation.gameSettings.fps)

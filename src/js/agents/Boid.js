@@ -1,6 +1,7 @@
-import {MathUtils} from "./MathHelpers";
+import {MathUtils} from "../utils/MathHelpers";
+import defaultState from "./defaultState";
 
-export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
+export const Boid = (gameContext, gameCanvas, startState = {}) => {
   console.log("Creating Test Agent")
 
   const maxSpeed = 0.1
@@ -8,25 +9,9 @@ export const TestAgent = (gameContext, gameCanvas, startState = {}) => {
   const angleOffset = 0
 
   const state = {
-    isLoaded: false,
-    size: [25, 25],
-    position: [1, 1],
-    currentSpeed: 0.5,
-    rotation: 45, //degree
-    velocity: [1, 1],
-    perception: {
-      radius: 50,
-      startAngle: -135,
-      endAngle: 135
-    },
-    parameters: {
-      separation: 1,
-      cohesion: 1,
-      alignment: 1
-    },
-    agentsWithinPerception: [],
-    id: MathUtils.uuidv4(),
-    ...startState
+    ...defaultState,
+    ...startState,
+    id: MathUtils.uuidv4()
   }
 
   console.log("Created agent with id: ", state.id)

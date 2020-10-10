@@ -2,16 +2,24 @@
     display: grid;
     grid-template-columns:
     1fr
-    min(65ch, 100%)
+    min(80ch, 100%)
     1fr;
 }
 .wrapper > * {
     grid-column: 2;
 }
+
 .wrapper > .navigation {
     grid-column: 1;
     text-align: right;
     margin-right: 20px;
+}
+
+.wrapper > .settings {
+    grid-column: 3;
+    text-align: left;
+    margin-left: 20px;
+    width: max-content;
 }
 .full-bleed {
     width: 100%;
