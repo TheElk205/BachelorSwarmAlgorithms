@@ -1,9 +1,12 @@
 import {Boid} from "../agents/Boid.js";
 import Simulation from "../Simulation";
+import Boid2 from "../agents/Boid2";
 
 const simulation = Simulation()
 
 // Game Controls
+const fpsLabel = document.getElementById('fpsView')
+
 const speedSlider = document.getElementById('speedSelector')
 speedSlider.oninput = (input) => {
   console.log(input.target.value)
@@ -24,7 +27,7 @@ perceptionAngleSlider.oninput = (input) => {
   agents.forEach(agent => {
     agent.setPerception({
       startAngle: -input.target.value,
-      endAngle: input.target.value
+      endAngle: parseFloat(input.target.value)
     })
   })
 }
@@ -44,9 +47,8 @@ const agents = [];
 
 for (let i=0; i < simulation.gameSettings.numberOfAgents; i++)
 {
-  const agent = Boid(
-      simulation.gameContext,
-      simulation.canvas,
+  const agent = new Boid2(
+      simulation,
       {
         position: [Math.random() * simulation.canvas.width, Math.random() * simulation.canvas.height],
         velocity: [Math.random(), Math.random()]
@@ -67,9 +69,22 @@ for (let i=0; i < simulation.gameSettings.numberOfAgents; i++)
 const startedAt = performance.now()
 let lastFrame = startedAt
 
+let stillRendering = false
+
 const drawEverything = () =>
 {
+  const frameStart = performance.now()
+
+  if (stillRendering)
+  {
+    console.error("can not keep FPS, skipping frame")
+    return
+  }
+  stillRendering = true
+  simulation.gameContext.setTransform(1,0,0,1,0,0);
   simulation.gameContext.clearRect(0, 0, simulation.canvas.width, simulation.canvas.height);
+
+  // Check Neighbours
   agents.forEach(agent =>
   {
     agents.forEach(perceptionAgents => {
@@ -77,18 +92,21 @@ const drawEverything = () =>
     })
   })
 
+  // Draw all agents
   agents.forEach(agent => {
-    if (simulation.gameSettings.debugEnabled) {
-      agent.drawDebug()
-    }
     agent.update(performance.now() - lastFrame)
+    agent.drawDebug()
     agent.draw()
   })
 
   // Testing
   // simulation.gameContext.rect(300, 320, 1, 1);
   // simulation.gameContext.stroke()
+  const duration = performance.now() - frameStart
+  const fps = Math.round(1/(duration/1000) * 100) / 100
+  fpsLabel.value = `${duration} ms (${fps} FPS)`
   lastFrame = performance.now()
+  stillRendering = false
 }
 
 // maybe split this up in visual update and "physics' Udpate.

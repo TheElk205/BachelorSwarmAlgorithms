@@ -15,31 +15,36 @@
         <div>Bachelor Swarm Algorithms</div>
         <canvas id="canvas" width="608" height="608" style="background-color: #cccccc">
         </canvas>
-        <div>
-            Simulation Settings
-            <div class="slidecontainer">
-                <label for="speedSelector">Speed</label>
-                <input type="range" min="0" max="100" value="50" class="slider" id="speedSelector">
-            </div>
+        <div class="settings">
             <div>
-                <label for="isDebugEnabled">Is debug Enabled</label>
-                <input type="checkbox" id="isDebugEnabled">
+                Current FPS:
+                <input readonly="true" id="fpsView" />
+            <div>
+                Simulation Settings
+                <div class="slidecontainer">
+                    <label for="speedSelector">Speed</label>
+                    <input type="range" min="0" max="100" value="50" class="slider" id="speedSelector">
+                </div>
+                <div>
+                    <label for="isDebugEnabled">Is debug Enabled</label>
+                    <input type="checkbox" id="isDebugEnabled">
+                </div>
             </div>
-        </div>
 
-        <div>
-            Agent Settings
-            <div class="perceptioncontainer">
-                Perception Settings
-                <label for="perceptionAngleSelector">Perception Angle</label>
-                <input type="range" min="0" max="180" value="50" class="slider" id="perceptionAngleSelector">
-
-                <label for="perceptionRadiusSelector">Perception Radius</label>
-                <input type="range" min="0" max="180" value="50" class="slider" id="perceptionRadiusSelector">
+            <div>
+                Agent Settings
+                <div>Perception Settings</div>
+                <div>
+                    <label for="perceptionAngleSelector">Perception Angle</label>
+                    <input type="range" min="0" max="180" value="50" class="slider" id="perceptionAngleSelector">
+                </div>
+                <div>
+                    <label for="perceptionRadiusSelector">Perception Radius</label>
+                    <input type="range" min="0" max="180" value="50" class="slider" id="perceptionRadiusSelector">
+                </div>
             </div>
+
         </div>
-
-
         <script src="js/simulations/boids.js"></script>
     </main>
 </body>

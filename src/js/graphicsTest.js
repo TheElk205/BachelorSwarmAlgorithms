@@ -5,9 +5,8 @@ import GraphicsTestAgent from "./agents/GraphicsTestAgent";
 
 const simulation = Simulation()
 
-const testAgent = GraphicsTestAgent(
-    simulation.gameContext,
-    simulation.canvas,
+const testAgent = new GraphicsTestAgent(
+    simulation,
     {
         position: [300, 300],
         velocity: [0, 0]
@@ -50,9 +49,9 @@ const drawEverything = () =>
     simulation.gameContext.setTransform(1,0,0,1,0,0);
     simulation.gameContext.clearRect(0,0,simulation.canvas.width, simulation.canvas.height);
 
-    if (simulation.gameSettings.debugEnabled) {
-        testAgent.drawDebug()
-    }
+    // if (simulation.gameSettings.debugEnabled) {
+    testAgent.drawDebug()
+    // }
     testAgent.update(performance.now() - lastFrame)
     testAgent.draw()
 

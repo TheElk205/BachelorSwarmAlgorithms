@@ -1,5 +1,3 @@
-
-
 const Simulation = () =>
 {
     const cvs = document.getElementById('canvas')
@@ -7,8 +5,8 @@ const Simulation = () =>
 
     return {
         gameSettings: {
-            numberOfAgents: 15,
-            fps: 60,
+            numberOfAgents: 20,
+            fps: 30,
             debugEnabled: true
         },
         gameContext : ctx,
