@@ -4,7 +4,7 @@ export class MathUtils {
     }
 
     static rad2deg = (rad) => {
-        return rad / (3.14 / 180.0)
+        return rad / (Math.PI / 180.0)
     }
 
     static getPointOnArc(cx,cy,radius,angle_rad){
@@ -27,7 +27,9 @@ export class MathUtils {
     }
 
     static angleFromVelocity(velocity) {
-        return MathUtils.rad2deg(Math.atan2(velocity[1], velocity[0]))
+        const angleRad = Math.atan2(velocity[1], velocity[0])
+        // console.log(`Angle from velocity; ${angleRad}`)
+        return MathUtils.rad2deg(angleRad)
     }
 
     static normalizeVelocity(velocity) {

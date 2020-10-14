@@ -1,46 +1,44 @@
 import {Boid} from "../agents/Boid.js";
 import Simulation from "../Simulation";
 import Boid2 from "../agents/Boid2";
+import NumberSlider from "../uiUtils/NumberSlider";
+import Checkbox from "../uiUtils/Checkbox";
 
 const simulation = Simulation()
 
 // Game Controls
 const fpsLabel = document.getElementById('fpsView')
 
-const speedSlider = document.getElementById('speedSelector')
-speedSlider.oninput = (input) => {
-  console.log(input.target.value)
+const speedSlider = NumberSlider('speedSelector', (value) => {
+  console.log(value)
   agents.forEach(agent => {
-    agent.setSpeed(input.target.value)
+    agent.setSpeed(parseFloat(value))
   })
-}
+});
 
-const isDebugEnabledToggle = document.getElementById('isDebugEnabled')
-isDebugEnabledToggle.checked = simulation.gameSettings.debugEnabled
-isDebugEnabledToggle.onchange = () => {
-  simulation.gameSettings.debugEnabled = !simulation.gameSettings.debugEnabled
-}
+const isDebugEnabledToggle = Checkbox('isDebugEnabled',
+    () => {
+      simulation.gameSettings.debugEnabled = !simulation.gameSettings.debugEnabled
+    }, simulation.gameSettings.debugEnabled)
 
-const perceptionAngleSlider = document.getElementById('perceptionAngleSelector')
-perceptionAngleSlider.oninput = (input) => {
-  console.log(input.target.value)
+const perceptionAngleSlider = NumberSlider('perceptionAngleSelector', (value) => {
+  console.log(value)
   agents.forEach(agent => {
     agent.setPerception({
-      startAngle: -input.target.value,
-      endAngle: parseFloat(input.target.value)
+      startAngle: -value,
+      endAngle: value
     })
   })
-}
+});
 
-const perceptionRadiusSlider = document.getElementById('perceptionRadiusSelector')
-perceptionRadiusSlider.oninput = (input) => {
-  console.log(input.target.value)
+const perceptionRadiusSlider = NumberSlider('perceptionRadiusSelector', (value) => {
+  console.log(value)
   agents.forEach(agent => {
     agent.setPerception({
-      radius: input.target.value
+      radius: value
     })
   })
-}
+});
 
 // Init everything here
 const agents = [];
@@ -48,18 +46,18 @@ const agents = [];
 for (let i=0; i < simulation.gameSettings.numberOfAgents; i++)
 {
   const agent = new Boid2(
-      simulation,
-      {
-        position: [Math.random() * simulation.canvas.width, Math.random() * simulation.canvas.height],
-        velocity: [Math.random(), Math.random()]
-      }
+    simulation,
+    {
+      position: [Math.random() * simulation.canvas.width, Math.random() * simulation.canvas.height],
+      velocity: [Math.random(), Math.random()]
+    }
   )
   agent.setSpeed(speedSlider.value)
   agents.forEach(agent => {
     agent.setPerception({
-      radius: perceptionRadiusSlider.value,
-      startAngle: -perceptionAngleSlider.value,
-      endAngle: perceptionAngleSlider.value,
+      radius: perceptionRadiusSlider.getValue(),
+      startAngle: -perceptionAngleSlider.getValue(),
+      endAngle: perceptionAngleSlider.getValue(),
     })
   })
   agents.push(agent)

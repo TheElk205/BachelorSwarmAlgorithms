@@ -107,8 +107,8 @@ class Boid2 extends AbstractAgent
         const speed = this.maxSpeed * this.state.currentSpeed
 
         this.state.velocity = newVelocity
-        this.state.rotation = MathUtils.angleFromVelocity(newVelocity)
-        console.log("new Rotation: ", this.state.rotation)
+        this.state.rotation = parseFloat(MathUtils.angleFromVelocity(newVelocity))
+        // console.log("new Rotation: ", this.state.rotation)
 
         // Adapt according to time whcih ahs passed since last frame
         const moveVelocity = [
