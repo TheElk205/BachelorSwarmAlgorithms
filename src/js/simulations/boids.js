@@ -52,13 +52,11 @@ for (let i=0; i < simulation.gameSettings.numberOfAgents; i++)
       velocity: [Math.random(), Math.random()]
     }
   )
-  agent.setSpeed(speedSlider.value)
-  agents.forEach(agent => {
-    agent.setPerception({
-      radius: perceptionRadiusSlider.getValue(),
-      startAngle: -perceptionAngleSlider.getValue(),
-      endAngle: perceptionAngleSlider.getValue(),
-    })
+  agent.setSpeed(speedSlider.getValue())
+  agent.setPerception({
+    radius: perceptionRadiusSlider.getValue(),
+    startAngle: -perceptionAngleSlider.getValue(),
+    endAngle: perceptionAngleSlider.getValue(),
   })
   agents.push(agent)
 }
