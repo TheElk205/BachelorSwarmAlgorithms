@@ -2,7 +2,7 @@ import {MathUtils} from "../utils/MathHelpers";
 import Drawable from "../engine/Drawable";
 
 class AbstractAgent extends Drawable {
-    constructor(simualtionSettings, startState = {}, agentImage = '../img/Agent/Agent.png') {
+    constructor(simualtionSettings, startState = {}, agentImage = './img/Agent/Agent.png') {
         super(agentImage, simualtionSettings);
         console.log("Creating Agent")
 
