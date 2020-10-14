@@ -49,7 +49,12 @@ for (let i=0; i < simulation.gameSettings.numberOfAgents; i++)
     simulation,
     {
       position: [Math.random() * simulation.canvas.width, Math.random() * simulation.canvas.height],
-      velocity: [Math.random(), Math.random()]
+      velocity: [Math.random() * 2 - 1, Math.random() * 2 - 1],
+      parameters: {
+        separation: 0.5,
+        cohesion: 0.2,
+        alignment: 0.001
+      }
     }
   )
   agent.setSpeed(speedSlider.getValue())

@@ -41,7 +41,7 @@ class AbstractAgent extends Drawable {
     }
 
     drawDebug = () => {
-        if (!this.isLoaded)
+        if (!this.isLoaded || !this.simulationSettings.gameSettings.debugEnabled)
         {
             return
         }

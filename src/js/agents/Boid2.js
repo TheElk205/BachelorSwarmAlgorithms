@@ -42,13 +42,24 @@ class Boid2 extends AbstractAgent
     }
 
     move = (moveVelocity) => {
-        this.state.position[0] += this.state.velocity[0] * moveVelocity[0]
-        this.state.position[1] += this.state.velocity[1] * moveVelocity[1]
+        this.state.position[0] += moveVelocity[0]
+        this.state.position[1] += moveVelocity[1]
 
         // Reset when moving out of the canvas
-        this.state.position[0] = this.state.position[0] % this.simulationSettings.canvas.width
-        this.state.position[1] = this.state.position[1] % this.simulationSettings.canvas.height
+        this.state.position[0] = this.calculateOverflow(this.state.position[0], this.simulationSettings.canvas.width + 10, 10)
+        this.state.position[1] = this.calculateOverflow(this.state.position[1], this.simulationSettings.canvas.height + 10, 10)
+    }
 
+    calculateOverflow = (newValue, max, min = 0) => {
+        if (newValue < min)
+        {
+            return max - Math.abs(newValue) - min
+        }
+        else if (newValue > max)
+        {
+            return newValue - max + min
+        }
+        return newValue
     }
 
     calculateNewNormalizedVelocity = () => {
@@ -107,14 +118,14 @@ class Boid2 extends AbstractAgent
         const speed = this.maxSpeed * this.state.currentSpeed
 
         this.state.velocity = newVelocity
-        this.state.rotation = parseFloat(MathUtils.angleFromVelocity(newVelocity))
-        // console.log("new Rotation: ", this.state.rotation)
 
-        // Adapt according to time whcih ahs passed since last frame
+        // Adapt according to time which has passed since last frame
         const moveVelocity = [
             newVelocity[0] * deltaTime * speed,
             newVelocity[1] * deltaTime * speed,
         ]
+
+        this.state.rotation = parseFloat(MathUtils.angleFromVelocity(moveVelocity))
 
         this.move(moveVelocity)
         this.state.agentsWithinPerception = []
