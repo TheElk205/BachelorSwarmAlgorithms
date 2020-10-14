@@ -1,5 +1,5 @@
 # Bachelor Thesis Swarm Microbehaviours
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f17a4546-fa3b-41ad-a53b-ca08017f7e8a/deploy-status)](https://app.netlify.com/sites/frosty-villani-89cc21/deploys)
 ## What we need from a programming site
 ### Agents
 Will have the following functions:
