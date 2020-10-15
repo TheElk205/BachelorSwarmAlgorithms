@@ -91,13 +91,14 @@ const drawEverything = () =>
     agents.forEach(perceptionAgents => {
       agent.addAgentIfWithinPerception(perceptionAgents)
     })
+    agent.update(performance.now() - lastFrame)
+    agent.drawDebug()
+    agent.draw()
   })
 
   // Draw all agents
   agents.forEach(agent => {
-    agent.update(performance.now() - lastFrame)
-    agent.drawDebug()
-    agent.draw()
+
   })
 
   // Testing
