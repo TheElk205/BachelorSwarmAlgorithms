@@ -2,8 +2,10 @@ import {MathUtils} from "../utils/MathHelpers";
 import Drawable from "../engine/Drawable";
 
 class AbstractAgent extends Drawable {
-    constructor(simualtionSettings, startState = {}, agentImage = './img/Agent/Agent.png') {
-        super(agentImage, simualtionSettings);
+    constructor(simualtionSettings, startState = {}) {
+        // This is a hack for stupid parcel pacakging
+        const agentImage = document.getElementById("agentImage") //./img/Agent/Agent.png
+        super(agentImage.src, simualtionSettings);
         console.log("Creating Agent")
 
         this.perceptions = new Map()
