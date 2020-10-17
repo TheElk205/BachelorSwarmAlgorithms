@@ -46,15 +46,15 @@ class Perception extends Drawable
             MathUtils.deg2rad(perceptionOffset + perception.startAngle),
             MathUtils.deg2rad(perceptionOffset + perception.endAngle)
         );
-        gameContext.moveTo(
-            position[0],
-            position[1]
-        )
         const arcStartPoint = MathUtils.getPointOnArc(
             position[0],
             position[1],
             perception.radius,
             MathUtils.deg2rad(perceptionOffset + perception.startAngle)
+        )
+        gameContext.moveTo(
+            position[0],
+            position[1]
         )
         gameContext.lineTo(
             arcStartPoint[0],
@@ -66,15 +66,14 @@ class Perception extends Drawable
             perception.radius,
             MathUtils.deg2rad(perceptionOffset + perception.endAngle)
         )
+        gameContext.moveTo(
+            position[0],
+            position[1]
+        )
         gameContext.lineTo(
             arcEndPoint[0],
             arcEndPoint[1]
         )
-        gameContext.lineTo(
-            position[0],
-            position[1],
-        )
-        gameContext.closePath()
     }
 
     draw = () =>
