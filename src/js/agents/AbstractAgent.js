@@ -84,11 +84,11 @@ class AbstractAgent extends Drawable {
 
     addPerception = (key, perception) =>
     {
-        this.perceptions.set(key, perception)
+        return this.perceptions.set(key, perception)
     }
 
     getPerception = (key) => {
-        this.perceptions.get(key)
+        return this.perceptions.get(key)
     }
 }
 

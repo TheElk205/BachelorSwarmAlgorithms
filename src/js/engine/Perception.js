@@ -14,21 +14,53 @@ class Perception extends Drawable
 
     checkIfPointWithinPerception = (x, y) => {
         const agentState = this.agent.getState()
+
         const between = [
-            agentState.position[0] - x,
-            agentState.position[1] - y
+            x - agentState.position[0],
+            y - agentState.position[1]
         ]
 
-        const length = MathUtils.calculateMagnitude(between)
+        const betweenRotated = MathUtils.rotateVector(between, -this.agent.getState().rotation)
+        const gameContext = this.simulationSettings.gameContext
 
-        // Need to check triangle here as well
-        if (length < this.perception.radius)
-        {
-            // console.log(`found friend at: ${x}/${y}`)
-            return true
-        }
+        this.simulationSettings.gameContext.setTransform(1, 0, 0, 1, agentState.position[0], agentState.position[1]); // sets scale and origin
+        this.simulationSettings.gameContext.rotate(
+            MathUtils.deg2rad(this.agent.getState().rotation)
+        );
 
-        return false
+        const startVector = MathUtils.getPointOnArc(
+            0,
+            0,
+            this.perception.radius,
+            MathUtils.deg2rad(this.perceptionOffset + this.perception.startAngle));
+
+        const endVector = MathUtils.getPointOnArc(
+            0,
+            0,
+            this.perception.radius,
+            MathUtils.deg2rad(this.perceptionOffset + this.perception.endAngle));
+
+        gameContext.beginPath();
+        gameContext.strokeStyle = "red";
+        gameContext.arc(betweenRotated[0], betweenRotated[1], 15, 0, 2 * Math.PI);
+        gameContext.stroke();
+
+        gameContext.beginPath();
+        gameContext.strokeStyle = "blue";
+        gameContext.arc(startVector[0], startVector[1], 15, 0, 2 * Math.PI);
+        gameContext.stroke();
+
+        gameContext.beginPath();
+        gameContext.strokeStyle = "green";
+        gameContext.arc(endVector[0], endVector[1], 15, 0, 2 * Math.PI);
+        gameContext.stroke();
+
+        // gameContext.beginPath();
+        // gameContext.strokeStyle = "green";
+        // gameContext.arc(between[0], between[1], 15, 0, 2 * Math.PI);
+        // gameContext.stroke();
+
+        return MathUtils.isPointInArc(this.perception, this.perceptionOffset, betweenRotated)
     }
 
     calculatePerception = (perception, perceptionOffset = 0) =>
@@ -74,6 +106,15 @@ class Perception extends Drawable
             arcEndPoint[0],
             arcEndPoint[1]
         )
+
+        const startArcVector = [
+            arcStartPoint[0] - position[0],
+            arcStartPoint[1] - position[1]
+        ]
+        const endArcVector = [
+            arcEndPoint[0] - position[0],
+            arcEndPoint[1] - position[1]
+        ]
     }
 
     draw = () =>

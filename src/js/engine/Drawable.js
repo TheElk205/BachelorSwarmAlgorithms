@@ -1,7 +1,7 @@
 import Simulation from "../Simulation";
 
 class Drawable {
-    constructor(assetPath, simulationSettings = Simulation()) {
+    constructor(assetPath, parent = null, simulationSettings = Simulation()) {
 
         if (assetPath != null)
         {
@@ -20,6 +20,7 @@ class Drawable {
 
 
         this.simulationSettings = simulationSettings
+        this.parent = parent
     }
 
     // no need to use save and restore between calls as it sets the transform rather

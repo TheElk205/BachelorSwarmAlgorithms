@@ -2,6 +2,7 @@
 
 import Simulation from "./Simulation";
 import GraphicsTestAgent from "./agents/GraphicsTestAgent";
+import NumberSlider from "./uiUtils/NumberSlider";
 
 const simulation = Simulation()
 
@@ -13,32 +14,44 @@ const testAgent = new GraphicsTestAgent(
     }
 )
 
-const speedSlider = document.getElementById('rotationSelector')
-speedSlider.oninput = (input) => {
-    console.log("Rotation: ", input.target.value)
-    testAgent.setPartialState("rotation", parseFloat(input.target.value))
-}
+const perceptionTestAgent = new GraphicsTestAgent(
+    simulation,
+    {
+        position: [350, 350],
+        velocity: [0, 0],
+        perception: {
+            radius: 0
+        }
+    }
+)
 
-const perceptionAngleSlider = document.getElementById('perceptionAngleSelector')
-perceptionAngleSlider.oninput = (input) => {
-    console.log("Perception angle: ", input.target.value)
-    testAgent.setPerception({
-        startAngle: -parseFloat(input.target.value),
-        endAngle: parseFloat(input.target.value)
-    })
-}
+const speedSlider = NumberSlider('rotationSelector', (value) => {
+    console.log("Rotation: ", value)
+    testAgent.setPartialState("rotation", value)
+});
 
-const perceptionRadiusSlider = document.getElementById('perceptionRadiusSelector')
-perceptionRadiusSlider.oninput = (input) => {
-    console.log("Perception Radius: ", input.target.value)
+const perceptionAngleSlider = NumberSlider('perceptionAngleSelector',  (value) => {
+    console.log("Perception angle: ", value)
     testAgent.setPerception({
-        radius: parseFloat(input.target.value)
+        startAngle: -value,
+        endAngle: value
     })
-}
+});
+
+const perceptionRadiusSlider = NumberSlider('perceptionRadiusSelector', (value) => {
+    console.log("Perception Radius: ", value)
+    testAgent.setPerception({
+        radius: value
+    })
+});
 
 // Init setup
-testAgent.setPartialState("rotation", speedSlider.value)
-
+testAgent.setPartialState("rotation", speedSlider.getValue())
+testAgent.setPerception({
+    radius: perceptionRadiusSlider.getValue(),
+    startAngle: -perceptionAngleSlider.getValue(),
+    endAngle: perceptionAngleSlider.getValue()
+})
 // Game Logic
 const startedAt = performance.now()
 let lastFrame = startedAt
@@ -51,9 +64,15 @@ const drawEverything = () =>
 
     // if (simulation.gameSettings.debugEnabled) {
     testAgent.drawDebug()
+    perceptionTestAgent.drawDebug()
     // }
+    testAgent.getPerception("default").checkIfPointWithinPerception(
+        perceptionTestAgent.getState().position[0],
+        perceptionTestAgent.getState().position[1])
     testAgent.update(performance.now() - lastFrame)
+    perceptionTestAgent.update(performance.now() - lastFrame)
     testAgent.draw()
+    perceptionTestAgent.draw()
 
     // Testing
     // simulation.gameContext.rect(300, 320, 1, 1);

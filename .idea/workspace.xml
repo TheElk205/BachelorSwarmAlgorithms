@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -10,8 +13,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="579aa123-dc12-4b4d-9f2b-7a75450cb7a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="579aa123-dc12-4b4d-9f2b-7a75450cb7a3" name="Default Changelist" comment="Alignemnt Fixed">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/agents/AbstractAgent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/agents/AbstractAgent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/engine/Drawable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/engine/Drawable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/engine/Perception.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/engine/Perception.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/graphicsTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/graphicsTest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/simulations/boids.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/simulations/boids.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/utils/MathHelpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/utils/MathHelpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testPages/graphicsTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/testPages/graphicsTest.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +32,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -35,23 +47,38 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/testPages" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion.SSH" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/js/utils" />
+      <recent name="$PROJECT_DIR$/src/js/simulations" />
+      <recent name="$PROJECT_DIR$/src/js/agents" />
+      <recent name="$PROJECT_DIR$/src/styles" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/testPages" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/js" />
     </key>
   </component>
   <component name="RunManager" selected="npm.dev">
+    <configuration name="graphicsTest.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/BachelorTestPlain/src/testPages/graphicsTest.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/BachelorTestPlain/src/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -75,11 +102,16 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.dev" />
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.graphicsTest.html" />
         <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="579aa123-dc12-4b4d-9f2b-7a75450cb7a3" name="Default Changelist" comment="" />
@@ -87,8 +119,180 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601726343846</updated>
-      <workItem from="1601726344999" duration="3567000" />
+      <workItem from="1601726344999" duration="21125000" />
+      <workItem from="1601924178808" duration="1994000" />
+      <workItem from="1601984589986" duration="345000" />
+      <workItem from="1602054890602" duration="959000" />
+      <workItem from="1602326677536" duration="11830000" />
+      <workItem from="1602693834504" duration="15044000" />
+      <workItem from="1602710735395" duration="3743000" />
+      <workItem from="1602787168943" duration="9623000" />
+      <workItem from="1603111111459" duration="210000" />
+      <workItem from="1603723547435" duration="513000" />
+      <workItem from="1606854719539" duration="543000" />
     </task>
+    <task id="LOCAL-00001" summary="First small steps">
+      <created>1601729991600</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1601729991600</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Edited gitignore">
+      <created>1601757333694</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1601757333694</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Basics are deon, rotation, perception, not leaving space. &#10;Need to implement basic flocking now, auto assigning of sliders">
+      <created>1601764554402</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1601764554402</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added multiple agents. Needs boids implementation now.">
+      <created>1601805399729</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1601805399729</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added perception to agents">
+      <created>1601809333639</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1601809333639</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add check in perception if it is me myself">
+      <created>1601809448230</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1601809448230</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Boids is in, perception is totally broken">
+      <created>1601813354924</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601813354924</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Kind of working wiht circular perception">
+      <created>1601814237707</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1601814237707</updated>
+    </task>
+    <task id="LOCAL-00009" summary="No idea why some rotations are wrong">
+      <created>1601815007885</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1601815007885</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added styling">
+      <created>1601924683052</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1601924683052</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Litttle bit of styling for controls">
+      <created>1602327085336</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1602327085336</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added new Drawing method, added also graphics Test page">
+      <created>1602328675740</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1602328675740</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added basic graphics test in class. Need to make real class out oof it so that i can extend it for different agents without havign to rewrite everything.">
+      <created>1602335177759</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1602335177759</updated>
+    </task>
+    <task id="LOCAL-00014" summary="First boids test wiht engine">
+      <created>1602704534190</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1602704534190</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added ui utils but no nothing is working any more??">
+      <created>1602706501884</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1602706501884</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fixed starting. However, they are still sometimes missaligned">
+      <created>1602706708609</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1602706708609</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Alignemnt Fixed">
+      <created>1602708987259</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1602708987259</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Changed Image path">
+      <created>1602712252834</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1602712252834</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added Netlify Badge">
+      <created>1602712313656</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1602712313656</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Moved Image, added to page">
+      <created>1602712901135</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1602712901135</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Made hack for laoding image from parcel build">
+      <created>1602746405310</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1602746405310</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Fixed partially wobbeling of agents">
+      <created>1602753759320</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1602753759320</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Removed unused PErception Triangle">
+      <created>1602921760945</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1602921760945</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,71 +308,195 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First small steps" />
+    <MESSAGE value="Edited gitignore" />
+    <MESSAGE value="Basics are deon, rotation, perception, not leaving space. &#10;Need to implement basic flocking now, auto assigning of sliders" />
+    <MESSAGE value="added multiple agents. Needs boids implementation now." />
+    <MESSAGE value="Added perception to agents" />
+    <MESSAGE value="Add check in perception if it is me myself" />
+    <MESSAGE value="Boids is in, perception is totally broken" />
+    <MESSAGE value="Kind of working wiht circular perception" />
+    <MESSAGE value="No idea why some rotations are wrong" />
+    <MESSAGE value="Added styling" />
+    <MESSAGE value="Litttle bit of styling for controls" />
+    <MESSAGE value="Added new Drawing method, added also graphics Test page" />
+    <MESSAGE value="Added basic graphics test in class. Need to make real class out oof it so that i can extend it for different agents without havign to rewrite everything." />
+    <MESSAGE value="First boids test wiht engine" />
+    <MESSAGE value="Added ui utils but no nothing is working any more??" />
+    <MESSAGE value="fixed starting. However, they are still sometimes missaligned" />
+    <MESSAGE value="Alignemnt Fixed" />
+    <MESSAGE value="Changed Image path" />
+    <MESSAGE value="Added Netlify Badge" />
+    <MESSAGE value="Moved Image, added to page" />
+    <MESSAGE value="Made hack for laoding image from parcel build" />
+    <MESSAGE value="Fixed partially wobbeling of agents" />
+    <MESSAGE value="Removed unused PErception Triangle" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unused PErception Triangle" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1003" height="330" key="GridCell.Tab.0.bottom" timestamp="1601729874957">
+    <state x="1249" y="442" key="#Notifications" timestamp="1602710274747">
+      <screen x="0" y="23" width="2048" height="1177" />
+    </state>
+    <state x="1249" y="442" key="#Notifications/0.23.2048.1177@0.23.2048.1177" timestamp="1602710274747" />
+    <state x="1378" y="515" key="Github.ShareDialog" timestamp="1602709243269">
+      <screen x="0" y="23" width="2048" height="1177" />
+    </state>
+    <state x="1378" y="515" key="Github.ShareDialog/0.23.2048.1177@0.23.2048.1177" timestamp="1602709243269" />
+    <state width="1003" height="407" key="GridCell.Tab.0.bottom" timestamp="1606854884930">
       <screen x="0" y="23" width="2048" height="1178" />
     </state>
-    <state width="1003" height="330" key="GridCell.Tab.0.bottom/0.23.2048.1178@0.23.2048.1178" timestamp="1601729874957" />
-    <state width="1003" height="330" key="GridCell.Tab.0.center" timestamp="1601729874956">
+    <state width="1003" height="407" key="GridCell.Tab.0.bottom/-3440.23.3440.1417/0.23.1792.1026@-3440.23.3440.1417" timestamp="1602754531061" />
+    <state width="1003" height="407" key="GridCell.Tab.0.bottom/-3440.23.3440.1417/0.23.2048.1177@-3440.23.3440.1417" timestamp="1602483825591" />
+    <state width="1003" height="407" key="GridCell.Tab.0.bottom/-3440.23.3440.1417/0.23.2048.1190@0.23.2048.1190" timestamp="1603800079831" />
+    <state width="1003" height="329" key="GridCell.Tab.0.bottom/-3440.23.3440.1417/0.23.2048.1201@0.23.2048.1201" timestamp="1602142174429" />
+    <state width="1003" height="407" key="GridCell.Tab.0.bottom/0.23.2048.1177@0.23.2048.1177" timestamp="1602712964810" />
+    <state width="1003" height="407" key="GridCell.Tab.0.bottom/0.23.2048.1178@0.23.2048.1178" timestamp="1606854884930" />
+    <state width="1003" height="407" key="GridCell.Tab.0.bottom/0.23.2048.1193@0.23.2048.1193" timestamp="1602950803607" />
+    <state width="1003" height="407" key="GridCell.Tab.0.center" timestamp="1606854884929">
       <screen x="0" y="23" width="2048" height="1178" />
     </state>
-    <state width="1003" height="330" key="GridCell.Tab.0.center/0.23.2048.1178@0.23.2048.1178" timestamp="1601729874956" />
-    <state width="1003" height="330" key="GridCell.Tab.0.left" timestamp="1601729874956">
+    <state width="1003" height="407" key="GridCell.Tab.0.center/-3440.23.3440.1417/0.23.1792.1026@-3440.23.3440.1417" timestamp="1602754531061" />
+    <state width="1003" height="407" key="GridCell.Tab.0.center/-3440.23.3440.1417/0.23.2048.1177@-3440.23.3440.1417" timestamp="1602483825590" />
+    <state width="1003" height="407" key="GridCell.Tab.0.center/-3440.23.3440.1417/0.23.2048.1190@0.23.2048.1190" timestamp="1603800079830" />
+    <state width="1003" height="329" key="GridCell.Tab.0.center/-3440.23.3440.1417/0.23.2048.1201@0.23.2048.1201" timestamp="1602142174428" />
+    <state width="1003" height="407" key="GridCell.Tab.0.center/0.23.2048.1177@0.23.2048.1177" timestamp="1602712964809" />
+    <state width="1003" height="407" key="GridCell.Tab.0.center/0.23.2048.1178@0.23.2048.1178" timestamp="1606854884929" />
+    <state width="1003" height="407" key="GridCell.Tab.0.center/0.23.2048.1193@0.23.2048.1193" timestamp="1602950803606" />
+    <state width="1003" height="407" key="GridCell.Tab.0.left" timestamp="1606854884928">
       <screen x="0" y="23" width="2048" height="1178" />
     </state>
-    <state width="1003" height="330" key="GridCell.Tab.0.left/0.23.2048.1178@0.23.2048.1178" timestamp="1601729874956" />
-    <state width="1003" height="330" key="GridCell.Tab.0.right" timestamp="1601729874957">
+    <state width="1003" height="407" key="GridCell.Tab.0.left/-3440.23.3440.1417/0.23.1792.1026@-3440.23.3440.1417" timestamp="1602754531057" />
+    <state width="1003" height="407" key="GridCell.Tab.0.left/-3440.23.3440.1417/0.23.2048.1177@-3440.23.3440.1417" timestamp="1602483825590" />
+    <state width="1003" height="407" key="GridCell.Tab.0.left/-3440.23.3440.1417/0.23.2048.1190@0.23.2048.1190" timestamp="1603800079830" />
+    <state width="1003" height="329" key="GridCell.Tab.0.left/-3440.23.3440.1417/0.23.2048.1201@0.23.2048.1201" timestamp="1602142174428" />
+    <state width="1003" height="407" key="GridCell.Tab.0.left/0.23.2048.1177@0.23.2048.1177" timestamp="1602712964809" />
+    <state width="1003" height="407" key="GridCell.Tab.0.left/0.23.2048.1178@0.23.2048.1178" timestamp="1606854884928" />
+    <state width="1003" height="407" key="GridCell.Tab.0.left/0.23.2048.1193@0.23.2048.1193" timestamp="1602950803605" />
+    <state width="1003" height="407" key="GridCell.Tab.0.right" timestamp="1606854884930">
       <screen x="0" y="23" width="2048" height="1178" />
     </state>
-    <state width="1003" height="330" key="GridCell.Tab.0.right/0.23.2048.1178@0.23.2048.1178" timestamp="1601729874957" />
-    <state width="1003" height="406" key="GridCell.Tab.1.bottom" timestamp="1601727020271">
-      <screen x="0" y="23" width="2048" height="1178" />
+    <state width="1003" height="407" key="GridCell.Tab.0.right/-3440.23.3440.1417/0.23.1792.1026@-3440.23.3440.1417" timestamp="1602754531061" />
+    <state width="1003" height="407" key="GridCell.Tab.0.right/-3440.23.3440.1417/0.23.2048.1177@-3440.23.3440.1417" timestamp="1602483825591" />
+    <state width="1003" height="407" key="GridCell.Tab.0.right/-3440.23.3440.1417/0.23.2048.1190@0.23.2048.1190" timestamp="1603800079830" />
+    <state width="1003" height="329" key="GridCell.Tab.0.right/-3440.23.3440.1417/0.23.2048.1201@0.23.2048.1201" timestamp="1602142174429" />
+    <state width="1003" height="407" key="GridCell.Tab.0.right/0.23.2048.1177@0.23.2048.1177" timestamp="1602712964810" />
+    <state width="1003" height="407" key="GridCell.Tab.0.right/0.23.2048.1178@0.23.2048.1178" timestamp="1606854884930" />
+    <state width="1003" height="407" key="GridCell.Tab.0.right/0.23.2048.1193@0.23.2048.1193" timestamp="1602950803606" />
+    <state width="1699" height="501" key="GridCell.Tab.1.bottom" timestamp="1602327922327">
+      <screen x="-3440" y="23" width="3440" height="1417" />
     </state>
+    <state width="1699" height="501" key="GridCell.Tab.1.bottom/-3440.23.3440.1417/0.23.2048.1177@-3440.23.3440.1417" timestamp="1602327922327" />
+    <state width="1003" height="406" key="GridCell.Tab.1.bottom/0.23.2048.1177@0.23.2048.1177" timestamp="1601874811795" />
     <state width="1003" height="406" key="GridCell.Tab.1.bottom/0.23.2048.1178@0.23.2048.1178" timestamp="1601727020271" />
-    <state width="1003" height="406" key="GridCell.Tab.1.center" timestamp="1601727020271">
-      <screen x="0" y="23" width="2048" height="1178" />
+    <state width="1699" height="501" key="GridCell.Tab.1.center" timestamp="1602327922327">
+      <screen x="-3440" y="23" width="3440" height="1417" />
     </state>
+    <state width="1699" height="501" key="GridCell.Tab.1.center/-3440.23.3440.1417/0.23.2048.1177@-3440.23.3440.1417" timestamp="1602327922327" />
+    <state width="1003" height="406" key="GridCell.Tab.1.center/0.23.2048.1177@0.23.2048.1177" timestamp="1601874811795" />
     <state width="1003" height="406" key="GridCell.Tab.1.center/0.23.2048.1178@0.23.2048.1178" timestamp="1601727020271" />
-    <state width="1003" height="406" key="GridCell.Tab.1.left" timestamp="1601727020271">
-      <screen x="0" y="23" width="2048" height="1178" />
+    <state width="1699" height="501" key="GridCell.Tab.1.left" timestamp="1602327922326">
+      <screen x="-3440" y="23" width="3440" height="1417" />
     </state>
+    <state width="1699" height="501" key="GridCell.Tab.1.left/-3440.23.3440.1417/0.23.2048.1177@-3440.23.3440.1417" timestamp="1602327922326" />
+    <state width="1003" height="406" key="GridCell.Tab.1.left/0.23.2048.1177@0.23.2048.1177" timestamp="1601874811794" />
     <state width="1003" height="406" key="GridCell.Tab.1.left/0.23.2048.1178@0.23.2048.1178" timestamp="1601727020271" />
-    <state width="1003" height="406" key="GridCell.Tab.1.right" timestamp="1601727020271">
-      <screen x="0" y="23" width="2048" height="1178" />
+    <state width="1699" height="501" key="GridCell.Tab.1.right" timestamp="1602327922327">
+      <screen x="-3440" y="23" width="3440" height="1417" />
     </state>
+    <state width="1699" height="501" key="GridCell.Tab.1.right/-3440.23.3440.1417/0.23.2048.1177@-3440.23.3440.1417" timestamp="1602327922327" />
+    <state width="1003" height="406" key="GridCell.Tab.1.right/0.23.2048.1177@0.23.2048.1177" timestamp="1601874811795" />
     <state width="1003" height="406" key="GridCell.Tab.1.right/0.23.2048.1178@0.23.2048.1178" timestamp="1601727020271" />
-    <state width="1003" height="406" key="GridCell.Tab.2.bottom" timestamp="1601727020272">
-      <screen x="0" y="23" width="2048" height="1178" />
+    <state width="1699" height="501" key="GridCell.Tab.2.bottom" timestamp="1602327922328">
+      <screen x="-3440" y="23" width="3440" height="1417" />
     </state>
+    <state width="1699" height="501" key="GridCell.Tab.2.bottom/-3440.23.3440.1417/0.23.2048.1177@-3440.23.3440.1417" timestamp="1602327922328" />
+    <state width="1003" height="406" key="GridCell.Tab.2.bottom/0.23.2048.1177@0.23.2048.1177" timestamp="1601874811796" />
     <state width="1003" height="406" key="GridCell.Tab.2.bottom/0.23.2048.1178@0.23.2048.1178" timestamp="1601727020272" />
-    <state width="1003" height="406" key="GridCell.Tab.2.center" timestamp="1601727020271">
-      <screen x="0" y="23" width="2048" height="1178" />
+    <state width="1699" height="501" key="GridCell.Tab.2.center" timestamp="1602327922328">
+      <screen x="-3440" y="23" width="3440" height="1417" />
     </state>
+    <state width="1699" height="501" key="GridCell.Tab.2.center/-3440.23.3440.1417/0.23.2048.1177@-3440.23.3440.1417" timestamp="1602327922328" />
+    <state width="1003" height="406" key="GridCell.Tab.2.center/0.23.2048.1177@0.23.2048.1177" timestamp="1601874811796" />
     <state width="1003" height="406" key="GridCell.Tab.2.center/0.23.2048.1178@0.23.2048.1178" timestamp="1601727020271" />
-    <state width="1003" height="406" key="GridCell.Tab.2.left" timestamp="1601727020271">
-      <screen x="0" y="23" width="2048" height="1178" />
+    <state width="1699" height="501" key="GridCell.Tab.2.left" timestamp="1602327922327">
+      <screen x="-3440" y="23" width="3440" height="1417" />
     </state>
+    <state width="1699" height="501" key="GridCell.Tab.2.left/-3440.23.3440.1417/0.23.2048.1177@-3440.23.3440.1417" timestamp="1602327922327" />
+    <state width="1003" height="406" key="GridCell.Tab.2.left/0.23.2048.1177@0.23.2048.1177" timestamp="1601874811796" />
     <state width="1003" height="406" key="GridCell.Tab.2.left/0.23.2048.1178@0.23.2048.1178" timestamp="1601727020271" />
-    <state width="1003" height="406" key="GridCell.Tab.2.right" timestamp="1601727020272">
-      <screen x="0" y="23" width="2048" height="1178" />
+    <state width="1699" height="501" key="GridCell.Tab.2.right" timestamp="1602327922328">
+      <screen x="-3440" y="23" width="3440" height="1417" />
     </state>
+    <state width="1699" height="501" key="GridCell.Tab.2.right/-3440.23.3440.1417/0.23.2048.1177@-3440.23.3440.1417" timestamp="1602327922328" />
+    <state width="1003" height="406" key="GridCell.Tab.2.right/0.23.2048.1177@0.23.2048.1177" timestamp="1601874811796" />
     <state width="1003" height="406" key="GridCell.Tab.2.right/0.23.2048.1178@0.23.2048.1178" timestamp="1601727020272" />
-    <state width="1003" height="406" key="GridCell.Tab.3.bottom" timestamp="1601727020273">
-      <screen x="0" y="23" width="2048" height="1178" />
+    <state width="1003" height="406" key="GridCell.Tab.3.bottom" timestamp="1601874811797">
+      <screen x="0" y="23" width="2048" height="1177" />
     </state>
+    <state width="1003" height="406" key="GridCell.Tab.3.bottom/0.23.2048.1177@0.23.2048.1177" timestamp="1601874811797" />
     <state width="1003" height="406" key="GridCell.Tab.3.bottom/0.23.2048.1178@0.23.2048.1178" timestamp="1601727020273" />
-    <state width="1003" height="406" key="GridCell.Tab.3.center" timestamp="1601727020272">
-      <screen x="0" y="23" width="2048" height="1178" />
+    <state width="1003" height="406" key="GridCell.Tab.3.center" timestamp="1601874811797">
+      <screen x="0" y="23" width="2048" height="1177" />
     </state>
+    <state width="1003" height="406" key="GridCell.Tab.3.center/0.23.2048.1177@0.23.2048.1177" timestamp="1601874811797" />
     <state width="1003" height="406" key="GridCell.Tab.3.center/0.23.2048.1178@0.23.2048.1178" timestamp="1601727020272" />
-    <state width="1003" height="406" key="GridCell.Tab.3.left" timestamp="1601727020272">
-      <screen x="0" y="23" width="2048" height="1178" />
+    <state width="1003" height="406" key="GridCell.Tab.3.left" timestamp="1601874811796">
+      <screen x="0" y="23" width="2048" height="1177" />
     </state>
+    <state width="1003" height="406" key="GridCell.Tab.3.left/0.23.2048.1177@0.23.2048.1177" timestamp="1601874811796" />
     <state width="1003" height="406" key="GridCell.Tab.3.left/0.23.2048.1178@0.23.2048.1178" timestamp="1601727020272" />
-    <state width="1003" height="406" key="GridCell.Tab.3.right" timestamp="1601727020272">
-      <screen x="0" y="23" width="2048" height="1178" />
+    <state width="1003" height="406" key="GridCell.Tab.3.right" timestamp="1601874811797">
+      <screen x="0" y="23" width="2048" height="1177" />
     </state>
+    <state width="1003" height="406" key="GridCell.Tab.3.right/0.23.2048.1177@0.23.2048.1177" timestamp="1601874811797" />
     <state width="1003" height="406" key="GridCell.Tab.3.right/0.23.2048.1178@0.23.2048.1178" timestamp="1601727020272" />
+    <state x="1256" y="321" key="RollbackChangesDialog" timestamp="1602712717708">
+      <screen x="0" y="23" width="2048" height="1177" />
+    </state>
+    <state x="1256" y="321" key="RollbackChangesDialog/0.23.2048.1177@0.23.2048.1177" timestamp="1602712717708" />
+    <state x="1037" y="250" key="SettingsEditor" timestamp="1602710015829">
+      <screen x="0" y="23" width="2048" height="1177" />
+    </state>
+    <state x="1037" y="250" key="SettingsEditor/0.23.2048.1177@0.23.2048.1177" timestamp="1602710015829" />
+    <state x="1387" y="532" key="VCS.ChangelistChooser" timestamp="1601757385504">
+      <screen x="0" y="23" width="2048" height="1180" />
+    </state>
+    <state x="1387" y="532" key="VCS.ChangelistChooser/0.23.2048.1180@0.23.2048.1180" timestamp="1601757385504" />
+    <state x="1414" y="533" key="VCS.EditChangelistDialog" timestamp="1601814280006">
+      <screen x="0" y="23" width="2048" height="1182" />
+    </state>
+    <state x="1414" y="533" key="VCS.EditChangelistDialog/0.23.2048.1182@0.23.2048.1182" timestamp="1601814280006" />
+    <state x="1134" y="356" key="Vcs.Push.Dialog.v2" timestamp="1602921764764">
+      <screen x="0" y="23" width="2048" height="1193" />
+    </state>
+    <state x="992" y="308" key="Vcs.Push.Dialog.v2/-3440.23.3440.1417/0.23.1792.1022@0.23.1792.1022" timestamp="1602746455445" />
+    <state x="-1536" y="418" key="Vcs.Push.Dialog.v2/-3440.23.3440.1417/0.23.1792.1028@-3440.23.3440.1417" timestamp="1602753761348" />
+    <state x="1136" y="351" key="Vcs.Push.Dialog.v2/0.23.2048.1177@0.23.2048.1177" timestamp="1602712903066" />
+    <state x="1134" y="356" key="Vcs.Push.Dialog.v2/0.23.2048.1193@0.23.2048.1193" timestamp="1602921764764" />
+    <state x="1334" y="532" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602710741455">
+      <screen x="0" y="23" width="2048" height="1177" />
+    </state>
+    <state x="1334" y="532" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.2048.1177@0.23.2048.1177" timestamp="1602710741455" />
+    <state x="1237" y="367" width="599" height="491" key="find.popup" timestamp="1603724020381">
+      <screen x="0" y="23" width="2048" height="1177" />
+    </state>
+    <state x="1082" y="320" width="568" height="490" key="find.popup/-3440.23.3440.1417/0.23.1792.1017@0.23.1792.1017" timestamp="1602745980147" />
+    <state x="-1362" y="437" width="1005" height="590" key="find.popup/-3440.23.3440.1417/0.23.2048.1177@-3440.23.3440.1417" timestamp="1602332580726" />
+    <state x="1237" y="367" width="599" height="491" key="find.popup/0.23.2048.1177@0.23.2048.1177" timestamp="1603724020381" />
+    <state x="1237" y="367" width="598" height="490" key="find.popup/0.23.2048.1178@0.23.2048.1178" timestamp="1601808311950" />
+    <state x="1237" y="368" width="598" height="491" key="find.popup/0.23.2048.1180@0.23.2048.1180" timestamp="1601813985587" />
+    <state x="1270" y="275" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602711048199">
+      <screen x="0" y="23" width="2048" height="1177" />
+    </state>
+    <state x="1270" y="275" key="git4idea.remote.GitConfigureRemotesDialog/0.23.2048.1177@0.23.2048.1177" timestamp="1602711048199" />
+    <state x="1080" y="286" width="766" height="790" key="search.everywhere.popup" timestamp="1602921567989">
+      <screen x="0" y="23" width="2048" height="1193" />
+    </state>
+    <state x="945" y="248" width="670" height="676" key="search.everywhere.popup/-3440.23.3440.1417/0.23.1792.1022@0.23.1792.1022" timestamp="1602746281409" />
+    <state x="1080" y="282" width="766" height="779" key="search.everywhere.popup/0.23.2048.1177@0.23.2048.1177" timestamp="1602787213946" />
+    <state x="1080" y="286" width="766" height="790" key="search.everywhere.popup/0.23.2048.1193@0.23.2048.1193" timestamp="1602921567989" />
   </component>
 </project>

@@ -12,7 +12,7 @@ const fpsLabel = document.getElementById('fpsView')
 const speedSlider = NumberSlider('speedSelector', (value) => {
   console.log(value)
   agents.forEach(agent => {
-    agent.setSpeed(parseFloat(value))
+    agent.setSpeed(value)
   })
 });
 
