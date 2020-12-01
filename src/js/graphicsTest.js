@@ -17,7 +17,7 @@ const testAgent = new GraphicsTestAgent(
 const perceptionTestAgent = new GraphicsTestAgent(
     simulation,
     {
-        position: [350, 350],
+        position: [300, 350],
         velocity: [0, 0],
         perception: {
             radius: 0

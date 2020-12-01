@@ -15,13 +15,9 @@
   <component name="ChangeListManager">
     <list default="true" id="579aa123-dc12-4b4d-9f2b-7a75450cb7a3" name="Default Changelist" comment="Alignemnt Fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/agents/AbstractAgent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/agents/AbstractAgent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/engine/Drawable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/engine/Drawable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/engine/Perception.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/engine/Perception.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/graphicsTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/graphicsTest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/simulations/boids.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/simulations/boids.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/utils/MathHelpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/utils/MathHelpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testPages/graphicsTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/testPages/graphicsTest.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +125,7 @@
       <workItem from="1602787168943" duration="9623000" />
       <workItem from="1603111111459" duration="210000" />
       <workItem from="1603723547435" duration="513000" />
-      <workItem from="1606854719539" duration="543000" />
+      <workItem from="1606854719539" duration="4203000" />
     </task>
     <task id="LOCAL-00001" summary="First small steps">
       <created>1601729991600</created>
@@ -292,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602921760945</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Graphical debugging, somehow not working">
+      <created>1606856085057</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1606856085058</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,7 +337,8 @@
     <MESSAGE value="Made hack for laoding image from parcel build" />
     <MESSAGE value="Fixed partially wobbeling of agents" />
     <MESSAGE value="Removed unused PErception Triangle" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed unused PErception Triangle" />
+    <MESSAGE value="Graphical debugging, somehow not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Graphical debugging, somehow not working" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1249" y="442" key="#Notifications" timestamp="1602710274747">

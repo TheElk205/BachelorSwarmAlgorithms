@@ -15,12 +15,26 @@ class Perception extends Drawable
     checkIfPointWithinPerception = (x, y) => {
         const agentState = this.agent.getState()
 
+        const distance = [
+            agentState.position[0] - x,
+            agentState.position[1] - y
+        ]
+
+        const rotationRad = MathUtils.deg2rad(this.agent.getState().rotation)
+
+        const relativePosition = [
+            Math.cos(rotationRad) * distance[0] - Math.sin(rotationRad) * distance[1],
+            Math.sin(rotationRad) * distance[0] + Math.cos(rotationRad) * distance[1]
+        ]
+
         const between = [
             x - agentState.position[0],
             y - agentState.position[1]
         ]
 
         const betweenRotated = MathUtils.rotateVector(between, -this.agent.getState().rotation)
+
+        // console.log(`rotation: ${this.agent.getState().rotation}, agent position: ${agentState.position}, to check position: ${x},${y}, relative Position: ${betweenRotated}` )
         const gameContext = this.simulationSettings.gameContext
 
         this.simulationSettings.gameContext.setTransform(1, 0, 0, 1, agentState.position[0], agentState.position[1]); // sets scale and origin

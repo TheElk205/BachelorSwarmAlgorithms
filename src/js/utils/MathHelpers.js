@@ -11,6 +11,21 @@ export class MathUtils {
         return [cx+Math.cos(angle_rad)*radius,cy+Math.sin(angle_rad)*radius];
     }
 
+    static dotProduct(v0, v1)
+    {
+        return v0[0] * v1[0] + v0[1] * v1[1]
+    }
+
+    static crossProduct(v0, v1)
+    {
+        return v0[1] * v1[0] + v0[1] * v1[1]
+    }
+
+    static isBetweenVectors(bound0, toCheck, bound1)
+    {
+        return (bound0[1] * toCheck[0] - bound0[0] * toCheck[1]) * (bound0[1] * bound1[0] - bound0[0] * bound1[1]) < 0;
+    }
+
     static rotateVector(vector, angleDegree)
     {
         const angleRad = this.deg2rad(angleDegree)
@@ -29,25 +44,18 @@ export class MathUtils {
             return false;
         }
 
-        const startVector = MathUtils.getPointOnArc(
-            0,
-            0,
-            perception.radius,
-            MathUtils.deg2rad(perceptionOffset + perception.startAngle));
+        const startAngle = perception.startAngle;
+        const endAngle = perception.endAngle;
+        const toCheckAngle = MathUtils.rad2deg(MathUtils.angleBetweenVectors([0, 1], toCheckPoint))
 
-        const endVector = MathUtils.getPointOnArc(
-            0,
-            0,
-            perception.radius,
-            MathUtils.deg2rad(perceptionOffset + perception.endAngle));
-        console.log(`ToCheck: ${toCheckPoint}, StartVector: ${startVector}, EndVector: ${endVector}`)
-
-        const isClockwise = this.areVectorsClockwise(startVector, toCheckPoint);
-        const isCounterclockwise = !this.areVectorsClockwise(endVector, toCheckPoint);
         const isInRadius = this.calculateMagnitude(toCheckPoint) <= perception.radius;
+        // console.log(`clockwise: ${isClockwise}, counterClockwise: ${isCounterclockwise} in Radius: ${isInRadius}`)
 
-        console.log(`clockwise: ${isClockwise}, counterClockwise: ${isCounterclockwise} in Radius: ${isInRadius}`)
-        console.log(`Is in: ${isClockwise && isCounterclockwise && isInRadius}`)
+        const isIn = startAngle < toCheckAngle && endAngle > toCheckAngle && isInRadius
+
+        // console.log(`Is in: ${isIn} ToCheck: ${toCheckAngle}, StartVector: ${startAngle}, EndVector: ${endAngle}`)
+
+        return isIn;
     }
 
     static areVectorsClockwise(v1, v2)  {
