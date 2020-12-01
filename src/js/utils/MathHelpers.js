@@ -38,11 +38,6 @@ export class MathUtils {
 
     // All points have to be relative to 0
     static isPointInArc(perception, perceptionOffset, toCheckPoint) {
-        if (perception.endAngle > 90)
-        {
-            console.log(`angle of ${perception.startAngle} not supported yet`)
-            return false;
-        }
 
         const startAngle = perception.startAngle;
         const endAngle = perception.endAngle;
@@ -53,7 +48,7 @@ export class MathUtils {
 
         const isIn = startAngle < toCheckAngle && endAngle > toCheckAngle && isInRadius
 
-        // console.log(`Is in: ${isIn} ToCheck: ${toCheckAngle}, StartVector: ${startAngle}, EndVector: ${endAngle}`)
+        console.log(`Is in: ${isIn} ToCheck: ${toCheckAngle}, StartVector: ${startAngle}, EndVector: ${endAngle}`)
 
         return isIn;
     }
